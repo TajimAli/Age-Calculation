@@ -1,0 +1,245 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(67, 65, 65);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 520px;
+    height: auto;
+    margin: 100px auto;
+    background-color: rgb(183, 181, 181);
+    border-radius: 5px;
+}
+
+.base {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    float: none;
+}
+
+.block {
+    width: 135px;
+    padding: 5px 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.base h4 {
+    font-size: 34px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin-top: 0;
+    box-shadow: 0px 2px #b130a80e;
+    background: rgba(17, 104, 104, 0.746);
+    color: navy;
+}
+
+.title {
+    font-size: 20px;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 0.5px;
+    letter-spacing: 2.7px;
+    color: #1073d0;
+}
+
+input[type=text] {
+    width: 140px;
+    margin: auto;
+    outline: none;
+    min-height: 50px;
+    border: 2px solid #1073d0;
+    padding: 12px;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+    color: #1073d0;
+    font-size: 17px;
+}
+
+input[type=text]:focus {
+    background-color: #ffff;
+    border: 2px solid orange;
+    outline: none;
+
+}
+
+input[type=button] {
+    width: 150px;
+    margin-left: 35%;
+    margin-top: 0%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #0761b6;
+    color: #ffff;
+    padding: 14px 16px;
+    align-items: center;
+    font-size: 16px;
+}
+
+input[type=button]:hover {
+    background-color: #003669;
+}
+
+#age {
+    display: block;
+    margin: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    font-family: Verdana;
+    font-size: 23px;
+    font-weight: normal;
+    line-height: 1.5;
+    word-spacing: 2.7px;
+    color: green;
+}
+
+h {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin-top: 0;
+    margin-left: 10px;
+    box-shadow: 2px 2px #bababa;
+    background: white;
+    color: red;
+}
+
+.clock {
+    width: 20rem;
+    height: 20rem;
+    background: red;
+    border: 7px solid #282828;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+        inset -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 1rem;
+}
+
+.outer-clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.outer-clock-face::after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.outer-clock-face::before,
+.outer-clock-face::after,
+.outer-clock-face .marking {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #1df52f;
+    z-index: 0;
+    left: 49%;
+}
+
+.outer-clock-face .marking {
+    background: #bdbdcb;
+    width: 10px;
+}
+
+.outer-clock-face .marking.marking-one {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.outer-clock-face .marking.marking-two {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+
+.outer-clock-face .marking.marking-three {
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+
+.outer-clock-face .marking.marking-four {
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+
+.iner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: red;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.iner-clock-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -6px;
+    background: black;
+    z-index: 11;
+}
+
+.hand {
+    width: 50%;
+    right: 50%;
+    height: 6px;
+    background: blue;
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand.hour-hand {
+    width: 30%;
+    z-index: 3;
+}
+
+.hand.min-hand {
+    height: 3px;
+    z-index: 10;
+    width: 40%;
+}
+
+.hand.second-hand {
+    background: rgb(140, 61, 89);
+    width: 45%;
+    height: 2px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Age-Calculation.css">
+    <title>Age calculation</title>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="base">
+                <div class="enter">
+                    <h4>Age Calculation</h4>
+                    <h> NOTE:
+                        Please Enter your Date of birth Less then one day from today's Date,
+                        for Example: your DOB is '07/11/1999' and today date is '04/04/2023'
+                        so Enter Here '03/11/1999'
+                    </h>
+                </div>
+                <div class="block">
+                    <p class="title">Date</p>
+                    <input type="text" name="date" id="date" placeholder="dd" required="required" minlength="1"
+                        maxlength="2">
+                </div>
+                <div class="block">
+                    <p class="title">Month</p>
+                    <input type="text" name="month" id="month" placeholder="mm" required="required" minlength="1"
+                        maxlength="2">
+                </div>
+                <div class="block">
+                    <p class="title">Year</p>
+                    <input type="text" name="year" id="year" placeholder="yyyy" required="required" minlength="4"
+                        maxlength="4">
+                </div>
+            </div>
+            <div class="clock">
+                <div class="outer-clock-face">
+                    <div class="marking marking-one"></div>
+                    <div class="marking marking-two"></div>
+                    <div class="marking marking-three"></div>
+                    <div class="marking marking-four"></div>
+                    <div class="iner-clock-face">
+                        <div class="hand hour-hand"></div>
+                        <div class="hand min-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="base">
+                <div class="enter">
+                    <input type="button" name="submit" value="Submit" onclick="age()" />
+                </div>
+            </div>
+            <div id="age"></div>
+        </form>
+        <div class="Tajim">
+            Making by Tajim Ali
+        </div>
+    </div>
+    
+    <script>
+        function age() {
+            var d1 = document.getElementById('date').value;
+            var m1 = document.getElementById('month').value;
+            var y1 = document.getElementById('year').value;
+
+            var date = new Date();
+            var d2 = date.getDate();
+            var m2 = 1 + date.getMonth();
+            var y2 = date.getFullYear();
+            var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            if (d1 > d2) {
+                d2 = d2 + month(m2 - 1);
+                m2 = m2 - 1;
+            }
+            if (m1 > m2) {
+                m2 = m2 + 12;
+                y2 = y2 - 1;
+            }
+            var d = d2 - d1;
+            var m = m2 - m1;
+            var y = y2 - y1;
+            document.getElementById('age').innerHTML = 'Your Age is ' + y + ' Year ' + m + ' Month ' + d + ' Days';
+        }
+
+        const secondHand = document.querySelector('.second-hand');
+        const minsHand = document.querySelector('.min-hand');
+        const hourHand = document.querySelector('.hour-hand');
+
+        function setDate() {
+            const now = new Date();
+
+            const seconds = now.getSeconds();
+            const secondsDegrees = ((seconds / 60) * 360) + 90;
+            secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+            const mins = now.getMinutes();
+            const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90;
+            minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+            const hour = now.getHours();
+            const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
+            hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+        }
+        setInterval(setDate, 1000);
+        setDate();
+
+    </script>
+</body>
+
+</html>
